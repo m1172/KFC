@@ -18,6 +18,13 @@ export default class App extends Component {
                 this.setState({total: this.state.total + value.price})
             );
         }; 
+        const onDelete = (id) => {
+            const selected =this.state.selected.filter(value => { 
+            value.id ===id && this.setState({total: this.state.total - value.price})
+            return value.id !==id
+        });
+            this.setState({selected})
+        }
         return ( 
             <div>
                 <div className='wrapper'>
@@ -48,7 +55,7 @@ export default class App extends Component {
                             <div className="order">
                                 <h1>
                                     {value.title} - {value.price}som
-                                    <button onClick={()=> onDelete()}>onDelete()</button>
+                                    <button onClick={()=> onDelete(value.id)}>Delete</button>
                                 </h1>
                             </div>
                         ))}
