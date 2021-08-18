@@ -22,9 +22,10 @@ export default class App extends Component {
             );
         }; 
         const onDelete = (id) => {
-            const selected =this.state.selected.filter(value => { 
-            value.id ===id && this.setState({total: this.state.total - value.price})
-            return value.id !==id
+            const selected = this.state.selected.filter(value => { 
+            value.selectedId ===id && 
+              this.setState({total: this.state.total - value.price})
+            return value.selectedId !==id
         });
             this.setState({selected})
         }
