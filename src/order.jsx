@@ -17,7 +17,7 @@ export default class order extends Component {
                             </div>
                         ))}
                         <h1 className="title">Total {this.props.data.total} som</h1>
-                        <button onClick={() => this.setState({selected: [], total: 0})}>Cancel</button>
+                        <button onClick={this.props.onCancel}>Cancel</button>
                         <button>Order</button>
                     </div>
         )

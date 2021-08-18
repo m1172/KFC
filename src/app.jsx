@@ -28,12 +28,21 @@ export default class App extends Component {
               this.setState({total: this.state.total - value.price});
             return value.selectedId !==id;
         });
-            this.setState({selected});
+            this.setState({selected});   
+        };
+        const onSort =(e) => {
+            const sorted = this.state.selected.sort((a,b) => a.price -b.price);
+            this.setState({selected: sorted});
         }
+        const onCancel = () => {
+            this.setState({selected: [], total: 0});
+        }
+
         return ( 
             <div>
                 <div className='wrapper'>
                     <div className="menu">
+                        <button onClick={onSort}>Sort</button>
                         {data.map(value=>{
                             return(
                                 <div className="category" > 
@@ -51,7 +60,10 @@ export default class App extends Component {
                             )
                         })} 
                     </div>
-                   <Order onDelete={(id)=> onDelete(id)} data= {this.state}/>
+                   <Order
+                    onCancel={onCancel}
+                    onDelete={(id)=> onDelete(id)}
+                    data= {this.state}/>
                 </div>
             </div>
         );
