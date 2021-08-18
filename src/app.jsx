@@ -14,20 +14,20 @@ export default class App extends Component {
         const onSelect =(value) => {
             const selected = [
                 ...this.state.selected,
-                {...value, selectedId: this.state.selectedId.length},
+                {...value, selectedId: this.state.selected.length},
             ];
             this.setState({selected});
-            selected.forEach((value) => 
+            selected.forEach((value) =>  
                 this.setState({total: this.state.total + value.price})
             );
         }; 
         const onDelete = (id) => {
-            const selected = this.state.selected.filter(value => { 
-            value.selectedId ===id && 
-              this.setState({total: this.state.total - value.price})
-            return value.selectedId !==id
+            const selected = this.state.selected.filter((value) => { 
+            value.selectedId === id && 
+              this.setState({total: this.state.total - value.price});
+            return value.selectedId !==id;
         });
-            this.setState({selected})
+            this.setState({selected});
         }
         return ( 
             <div>
@@ -59,7 +59,7 @@ export default class App extends Component {
                             <div className="order">
                                 <h1>
                                     {value.title} - {value.price}som
-                                    <button onClick={()=> onDelete(value.id)}>Delete</button>
+                                    <button onClick={()=> onDelete(value.selectedId)}>Delete</button>
                                 </h1>
                             </div>
                         ))}
