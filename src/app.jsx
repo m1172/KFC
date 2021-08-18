@@ -51,7 +51,7 @@ export default class App extends Component {
                             )
                         })} 
                     </div>
-                   <Order/>
+                   <Order data= {this.state}/>
                 </div>
             </div>
         );

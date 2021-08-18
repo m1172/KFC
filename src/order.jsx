@@ -5,10 +5,10 @@ export default class order extends Component {
         return (
             <div className="order">
                         <h1 className='title'>Order</h1>
-                        {this.state.selected.length <= 0 && (
+                        {this.props.data.selected.length <= 0 && (
                             <h1>Not Selected</h1>
                         )}
-                        {this.state.selected.map((value) => (
+                        {this.props.data.selected.map((value) => (
                             <div className="order">
                                 <h1>
                                     {value.title} - {value.price}som
@@ -16,7 +16,7 @@ export default class order extends Component {
                                 </h1>
                             </div>
                         ))}
-                        <h1 className="title">Total {this.state.total} som</h1>
+                        <h1 className="title">Total {this.props.data.total} som</h1>
                         <button onClick={() => this.setState({selected: [], total: 0})}>Cancel</button>
                         <button>Order</button>
                     </div>
