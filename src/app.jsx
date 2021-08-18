@@ -31,7 +31,7 @@ export default class App extends Component {
             this.setState({selected});   
         };
         const onSort =(e) => {
-            const sorted = this.state.selected.sort((a,b) => a.price -b.price);
+            const sorted = this.state.selected.sort((a,b) => a.price - b.price);
             this.setState({selected: sorted});
         }
         const onCancel = () => {
