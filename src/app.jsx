@@ -12,7 +12,10 @@ export default class App extends Component {
     }
     render() {
         const onSelect =(value) => {
-            const selected = [...this.state.selected, value];
+            const selected = [
+                ...this.state.selected,
+                {...value, selectedId: this.state.selectedId.length},
+            ];
             this.setState({selected});
             selected.forEach((value) => 
                 this.setState({total: this.state.total + value.price})
