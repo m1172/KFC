@@ -12,7 +12,7 @@ export default class order extends Component {
                             <div className="order">
                                 <h1>
                                     {value.title} - {value.price}som
-                                    <button onClick={()=> onDelete(value.selectedId)}>Delete</button>
+                                    <button onClick={()=> this.props.onDelete(value.selectedId)}>Delete</button>
                                 </h1>
                             </div>
                         ))}

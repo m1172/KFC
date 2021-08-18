@@ -51,7 +51,7 @@ export default class App extends Component {
                             )
                         })} 
                     </div>
-                   <Order data= {this.state}/>
+                   <Order onDelete={(id)=> onDelete(id)} data= {this.state}/>
                 </div>
             </div>
         );
